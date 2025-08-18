@@ -15,10 +15,10 @@ export default function PortfolioPage() {
       <p className="mt-2 text-gray-700">A selection of our work.</p>
       <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {items.map((c) => (
-          <Link key={c.href} href={c.href} className="rounded-xl border p-5 hover:shadow-md transition">
+          <Link key={c.href} href={c.href} className="rounded-xl border border-gray-800 bg-gray-900 p-5 hover:bg-gray-800 transition">
             <div className="text-brand font-semibold">{c.name}</div>
-            <div className="mt-1 text-gray-700 text-sm">{c.desc}</div>
-            <div className="mt-3 text-sm font-semibold">View →</div>
+            <div className="mt-1 text-gray-300 text-sm">{c.desc}</div>
+            <div className="mt-3 text-sm font-semibold text-gray-200">View →</div>
           </Link>
         ))}
       </div>

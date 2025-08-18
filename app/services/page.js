@@ -19,10 +19,10 @@ export default function ServicesPage() {
       <p className="mt-2 text-gray-700 max-w-3xl">End-to-end product development, with AI when it helps—not when it doesn’t.</p>
       <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((s) => (
-          <Link key={s.href} href={s.href} className="rounded-xl border p-5 hover:shadow-md transition">
+          <Link key={s.href} href={s.href} className="rounded-xl border border-gray-800 bg-gray-900 p-5 hover:bg-gray-800 transition">
             <div className="text-brand font-semibold">{s.name}</div>
-            <div className="mt-1 text-gray-700 text-sm">{s.desc}</div>
-            <div className="mt-3 text-sm font-semibold">Learn more →</div>
+            <div className="mt-1 text-gray-300 text-sm">{s.desc}</div>
+            <div className="mt-3 text-sm font-semibold text-gray-200">Learn more →</div>
           </Link>
         ))}
       </div>

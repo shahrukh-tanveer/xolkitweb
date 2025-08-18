@@ -25,12 +25,12 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-100">
+  <header className="sticky top-0 z-50 bg-transparent border-b border-transparent">
       <nav className="container-px">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-3">
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/logo.svg" alt="Xolkit" width={120} height={32} priority />
+        <Image src="/logo.svg" alt="Xolkit" width={120} height={32} priority />
             </Link>
           </div>
 
@@ -43,13 +43,13 @@ export default function Navbar() {
                 <ChevronDownIcon className="h-4 w-4"/>
               </Menu.Button>
               <Transition as={Fragment} enter="transition ease-out duration-100" enterFrom="transform opacity-0 scale-95" enterTo="transform opacity-100 scale-100" leave="transition ease-in duration-75" leaveFrom="transform opacity-100 scale-100" leaveTo="transform opacity-0 scale-95">
-                <Menu.Items className="absolute right-0 mt-2 w-[360px] origin-top-right rounded-xl border border-gray-100 bg-white shadow-lg ring-1 ring-black/5 focus:outline-none p-2">
+                <Menu.Items className="absolute right-0 mt-2 w-[360px] origin-top-right rounded-xl border border-gray-800 bg-gray-900 shadow-lg ring-1 ring-black/20 focus:outline-none p-2">
                   {services.map((item) => (
                     <Menu.Item key={item.href}>
                       {({ active }) => (
-                        <Link href={item.href} className={`block rounded-lg px-3 py-2 ${active ? "bg-gray-50" : ""}`}>
-                          <div className="text-sm font-semibold">{item.name}</div>
-                          <div className="text-xs text-gray-500">{item.description}</div>
+                        <Link href={item.href} className={`block rounded-lg px-3 py-2 ${active ? "bg-gray-800" : ""}`}>
+                          <div className="text-sm font-semibold text-gray-100">{item.name}</div>
+                          <div className="text-xs text-gray-400">{item.description}</div>
                         </Link>
                       )}
                     </Menu.Item>
@@ -64,13 +64,13 @@ export default function Navbar() {
                 <ChevronDownIcon className="h-4 w-4"/>
               </Menu.Button>
               <Transition as={Fragment} enter="transition ease-out duration-100" enterFrom="transform opacity-0 scale-95" enterTo="transform opacity-100 scale-100" leave="transition ease-in duration-75" leaveFrom="transform opacity-100 scale-100" leaveTo="transform opacity-0 scale-95">
-                <Menu.Items className="absolute right-0 mt-2 w-[320px] origin-top-right rounded-xl border border-gray-100 bg-white shadow-lg ring-1 ring-black/5 focus:outline-none p-2">
+                <Menu.Items className="absolute right-0 mt-2 w-[320px] origin-top-right rounded-xl border border-gray-800 bg-gray-900 shadow-lg ring-1 ring-black/20 focus:outline-none p-2">
                   {portfolio.map((item) => (
                     <Menu.Item key={item.href}>
                       {({ active }) => (
-                        <Link href={item.href} className={`block rounded-lg px-3 py-2 ${active ? "bg-gray-50" : ""}`}>
-                          <div className="text-sm font-semibold">{item.name}</div>
-                          <div className="text-xs text-gray-500">{item.description}</div>
+                        <Link href={item.href} className={`block rounded-lg px-3 py-2 ${active ? "bg-gray-800" : ""}`}>
+                          <div className="text-sm font-semibold text-gray-100">{item.name}</div>
+                          <div className="text-xs text-gray-400">{item.description}</div>
                         </Link>
                       )}
                     </Menu.Item>
@@ -84,7 +84,7 @@ export default function Navbar() {
           </div>
 
           <div className="md:hidden">
-            <button aria-label="Toggle menu" onClick={() => setMobileOpen((v) => !v)} className="p-2 rounded-md hover:bg-gray-100">
+            <button aria-label="Toggle menu" onClick={() => setMobileOpen((v) => !v)} className="p-2 rounded-md hover:bg-gray-800">
               {mobileOpen ? <XMarkIcon className="h-6 w-6"/> : <Bars3Icon className="h-6 w-6"/>}
             </button>
           </div>
@@ -93,17 +93,17 @@ export default function Navbar() {
         {mobileOpen && (
           <div className="md:hidden pb-4">
             <div className="space-y-1">
-              <Link href="/about" className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-100">About</Link>
+              <Link href="/about" className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-800">About</Link>
               <Disclosure>
                 {({ open }) => (
                   <div>
-                    <Disclosure.Button className="flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-sm font-medium hover:bg-gray-100">
+                    <Disclosure.Button className="flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-sm font-medium hover:bg-gray-800">
                       <span>Services</span>
                       <ChevronDownIcon className={`h-4 w-4 transition ${open ? "rotate-180" : ""}`} />
                     </Disclosure.Button>
                     <Disclosure.Panel className="pl-3">
                       {services.map((s) => (
-                        <Link key={s.href} href={s.href} className="block rounded-md px-3 py-2 text-sm hover:bg-gray-100">{s.name}</Link>
+                        <Link key={s.href} href={s.href} className="block rounded-md px-3 py-2 text-sm hover:bg-gray-800">{s.name}</Link>
                       ))}
                     </Disclosure.Panel>
                   </div>
@@ -112,20 +112,20 @@ export default function Navbar() {
               <Disclosure>
                 {({ open }) => (
                   <div>
-                    <Disclosure.Button className="flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-sm font-medium hover:bg-gray-100">
+                    <Disclosure.Button className="flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-sm font-medium hover:bg-gray-800">
                       <span>Portfolio</span>
                       <ChevronDownIcon className={`h-4 w-4 transition ${open ? "rotate-180" : ""}`} />
                     </Disclosure.Button>
                     <Disclosure.Panel className="pl-3">
                       {portfolio.map((p) => (
-                        <Link key={p.href} href={p.href} className="block rounded-md px-3 py-2 text-sm hover:bg-gray-100">{p.name}</Link>
+                        <Link key={p.href} href={p.href} className="block rounded-md px-3 py-2 text-sm hover:bg-gray-800">{p.name}</Link>
                       ))}
                     </Disclosure.Panel>
                   </div>
                 )}
               </Disclosure>
-              <Link href="/blogs" className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-100">Blogs</Link>
-              <Link href="/contact" className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-100">Contact</Link>
+              <Link href="/blogs" className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-800">Blogs</Link>
+              <Link href="/contact" className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-800">Contact</Link>
             </div>
           </div>
         )}

@@ -14,9 +14,9 @@ export default function BlogPostPage({ params }) {
     <article className="py-12 max-w-3xl">
       <div className="text-xs text-gray-500">{new Date(post.date).toLocaleDateString()}</div>
       <h1 className="mt-1 text-3xl font-bold">{post.title}</h1>
-      <div className="prose prose-gray max-w-none mt-6">
+      <div className="prose prose-invert max-w-none mt-6">
         {post.content.split("\n").map((p, i) => (
-          <p key={i} className="text-gray-800 leading-7">{p}</p>
+          <p key={i} className="text-gray-200 leading-7">{p}</p>
         ))}
       </div>
     </article>
