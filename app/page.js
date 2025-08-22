@@ -13,7 +13,7 @@ export default function HomePage() {
   return (
     <section className="relative overflow-hidden">
       <div className="relative container-px py-16 sm:py-24">
-        {/* Wrapper centered horizontally; inner text left so line starts align */}
+        {/* Left Centered Wrapper */}
         <div className="w-full max-w-3xl ">
           <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight mx-auto">
             <span className="gradient-text block">The platform for</span>
