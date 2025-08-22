@@ -101,7 +101,7 @@ body {
 
 /* Inner container height animation */
 .nav-inner { height: 4rem; transition: height .45s cubic-bezier(.4,0,.2,1), padding .45s cubic-bezier(.4,0,.2,1); }
-.navbar-shrink .nav-inner { height: 3.25rem; }
+.navbar-shrink .nav-inner { height: 3.5rem; }
 
 /* Optional top hairline light + subtle bottom separator via shadow layering */
 .navbar-solid::before, .navbar-initial::before {
