@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { Fragment, useState } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { Menu, Transition, Disclosure } from "@headlessui/react";
 import { ChevronDownIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
@@ -23,9 +23,31 @@ const portfolio = [
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  const [justActivated, setJustActivated] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const current = window.scrollY;
+      setScrollY(current);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const solid = scrollY > 32; // threshold to become solid
+
+  // Trigger a one-off reveal animation when becoming solid
+  useEffect(() => {
+    if (solid) {
+      setJustActivated(true);
+      const t = setTimeout(() => setJustActivated(false), 500);
+      return () => clearTimeout(t);
+    }
+  }, [solid]);
 
   return (
-  <header className="sticky top-0 z-50 bg-transparent border-b border-transparent">
+  <header className={`sticky top-0 z-50 transition-colors duration-500 ${solid ? "navbar-solid shadow-[0_8px_32px_-10px_rgba(0,0,0,0.85)]" : "bg-transparent"} ${justActivated ? "navbar-solid-enter" : ""}`}>
       <nav className="container-px">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center gap-3">

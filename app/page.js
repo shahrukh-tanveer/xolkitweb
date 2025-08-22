@@ -13,18 +13,25 @@ export default function HomePage() {
   return (
     <section className="relative overflow-hidden">
       <div className="relative container-px py-16 sm:py-24">
-        <div className="mx-auto max-w-4xl text-center">
-        <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight">
-          <span className="gradient-text">The platform for</span> building tomorrow's intelligent applications
-        </h1>
-  <p className="mt-4 text-lg text-gray-300">
-          We design, develop, and deploy modern software—web, mobile, SaaS, and AI agents—
-          with craftsmanship and speed.
-        </p>
-        <div className="mt-8 flex items-center justify-center gap-3">
-          <Link href="/contact" className="inline-flex items-center rounded-lg bg-brand px-5 py-3 text-white font-semibold shadow hover:bg-brand-dark">Start a project</Link>
-          <Link href="/services" className="inline-flex items-center rounded-lg border border-gray-800 bg-gray-900 px-5 py-3 font-semibold hover:bg-gray-800 text-gray-100">Explore services</Link>
-        </div>
+        {/* Wrapper centered horizontally; inner text left so line starts align */}
+        <div className="w-full max-w-3xl ">
+          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight mx-auto">
+            <span className="gradient-text block">The platform for</span>
+            <span className="block text-gray-100">building tomorrow's intelligent applications</span>
+          </h1>
+          <p className="mt-6 text-lg text-gray-300 max-w-2xl">
+            We design, develop, and deploy modern software—web, mobile, SaaS, and AI agents—
+            with craftsmanship and speed.
+          </p>
+          <div className="mt-8 flex items-center gap-3">
+            <Link
+              href="/services"
+              className="group relative inline-flex items-center rounded-xl px-6 py-3 font-semibold text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime-300 transition"
+            >
+              <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-400 to-lime-300 shadow-[0_0_0_1px_rgba(255,255,255,0.08)] group-hover:brightness-110 group-active:brightness-95" />
+              <span className="relative">Explore services</span>
+            </Link>
+          </div>
         </div>
       </div>
 
