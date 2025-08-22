@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${inter.variable}`}>
       <body className="min-h-screen flex flex-col">
         <Navbar />
-        <main className="flex-1 container-px">
+  <main className="flex-1 container-px pt-16">
           {children}
         </main>
         <Footer />

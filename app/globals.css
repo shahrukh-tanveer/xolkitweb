@@ -100,3 +100,25 @@ body {
   60% { transform: translateY(6%); opacity: 1; }
   100% { transform: translateY(0); opacity: 1; }
 }
+
+/* Initial transparent navbar state */
+.navbar-initial {
+  background: linear-gradient(to bottom, rgba(15,23,42,0.65), rgba(15,23,42,0.15) 70%, rgba(15,23,42,0));
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+}
+
+/* Inner container height animation */
+.nav-inner { height: 4rem; transition: height .45s cubic-bezier(.4,0,.2,1), padding .45s cubic-bezier(.4,0,.2,1); }
+.navbar-shrink .nav-inner { height: 3.25rem; }
+
+/* Optional top hairline light + subtle bottom separator via shadow layering */
+.navbar-solid::before, .navbar-initial::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0) 60%);
+  mask: linear-gradient(180deg, #000 0%, #000 30%, transparent 100%);
+}

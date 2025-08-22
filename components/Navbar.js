@@ -36,6 +36,7 @@ export default function Navbar() {
   }, []);
 
   const solid = scrollY > 32; // threshold to become solid
+  const shrink = scrollY > 32; // reuse same threshold for shrink (can separate later)
 
   // Trigger a one-off reveal animation when becoming solid
   useEffect(() => {
@@ -47,9 +48,9 @@ export default function Navbar() {
   }, [solid]);
 
   return (
-  <header className={`sticky top-0 z-50 transition-colors duration-500 ${solid ? "navbar-solid shadow-[0_8px_32px_-10px_rgba(0,0,0,0.85)]" : "bg-transparent"} ${justActivated ? "navbar-solid-enter" : ""}`}>
+  <header className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${solid ? "navbar-solid shadow-[0_8px_32px_-10px_rgba(0,0,0,0.85)]" : "navbar-initial"} ${shrink ? "navbar-shrink" : ""} ${justActivated ? "navbar-solid-enter" : ""}`}>
       <nav className="container-px">
-        <div className="flex h-16 items-center justify-between">
+        <div className="nav-inner flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Link href="/" className="flex items-center gap-2">
         <Image src="/logo.svg" alt="Xolkit" width={120} height={32} priority />
