@@ -12,16 +12,15 @@ export default function HomePage() {
   ];
   return (
     <section className="relative overflow-hidden">
-      <div className="relative container-px pt-24 sm:pt-28 pb-16 sm:pb-24">
-        <div className="mx-auto max-w-4xl text-center">
-        <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight">
-          <span className="gradient-text">The platform for</span> building tomorrow's intelligent applications
+      <div className="relative container-px pt-36 sm:pt-44 lg:pt-56 pb-24 sm:pb-32 min-h-[70vh]">
+        <div className="mx-auto max-w-5xl text-center">
+        <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight text-gray-100">
+          Launchpad for building tomorrow's intelligent applications
         </h1>
-  <p className="mt-4 text-lg text-gray-300">
-          We design, develop, and deploy modern software—web, mobile, SaaS, and AI agents—
-          with craftsmanship and speed.
-        </p>
-        <div className="mt-8 flex items-center justify-center gap-3">
+  <p className="mt-6 text-xl text-gray-300 max-w-3xl mx-auto">
+    Integrate AI. Ship faster. Web, mobile, and SaaS—built right.
+  </p>
+        <div className="mt-10 flex items-center justify-center gap-3">
           <Link href="/contact" className="inline-flex items-center rounded-lg bg-brand px-5 py-3 text-white font-semibold shadow hover:bg-brand-dark">Start a project</Link>
           <Link href="/services" className="inline-flex items-center rounded-lg border border-gray-800 bg-gray-900 px-5 py-3 font-semibold hover:bg-gray-800 text-gray-100">Explore services</Link>
         </div>
