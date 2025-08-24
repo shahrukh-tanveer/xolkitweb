@@ -25,29 +25,31 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-  <header className="sticky top-0 z-50 bg-transparent border-b border-transparent">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#0b1220]/60 backdrop-blur supports-[backdrop-filter]:bg-[#0b1220]/60">
       <nav className="container-px">
-        <div className="flex h-16 items-center justify-between">
+        <div className="grid grid-cols-3 items-center h-16">
+          {/* Left: Logo */}
           <div className="flex items-center gap-3">
             <Link href="/" className="flex items-center gap-2">
-        <Image src="/logo.svg" alt="Xolkit" width={120} height={32} priority />
+              <Image src="/logo.svg" alt="Xolkit" width={120} height={32} priority />
             </Link>
           </div>
 
-          <div className="hidden md:flex items-center gap-6">
-            <Link href="/about" className="text-sm font-medium hover:text-brand">About</Link>
+          {/* Center: Desktop nav */}
+          <div className="hidden md:flex items-center justify-center gap-3">
+            <Link href="/about" className="px-3 py-1.5 rounded-full text-sm font-medium hover:bg-white/10 hover:text-white transition">About</Link>
 
             <Menu as="div" className="relative inline-block text-left">
-              <Menu.Button className="inline-flex items-center gap-1 text-sm font-medium hover:text-brand">
+              <Menu.Button className="px-3 py-1.5 rounded-full inline-flex items-center gap-1 text-sm font-medium hover:bg-white/10 hover:text-white transition">
                 Services
-                <ChevronDownIcon className="h-4 w-4"/>
+                <ChevronDownIcon className="h-4 w-4" />
               </Menu.Button>
               <Transition as={Fragment} enter="transition ease-out duration-100" enterFrom="transform opacity-0 scale-95" enterTo="transform opacity-100 scale-100" leave="transition ease-in duration-75" leaveFrom="transform opacity-100 scale-100" leaveTo="transform opacity-0 scale-95">
-                <Menu.Items className="absolute right-0 mt-2 w-[360px] origin-top-right rounded-xl border border-gray-800 bg-gray-900 shadow-lg ring-1 ring-black/20 focus:outline-none p-2">
+                <Menu.Items className="absolute left-1/2 -translate-x-1/2 mt-2 w-[min(720px,92vw)] origin-top rounded-xl border border-gray-800 bg-gray-900 shadow-lg ring-1 ring-black/20 focus:outline-none p-2 grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {services.map((item) => (
                     <Menu.Item key={item.href}>
                       {({ active }) => (
-                        <Link href={item.href} className={`block rounded-lg px-3 py-2 ${active ? "bg-gray-800" : ""}`}>
+                        <Link href={item.href} className={`block rounded-lg px-3 py-2 ${active ? "bg-gray-800" : "bg-gray-900"} hover:bg-gray-800`}>
                           <div className="text-sm font-semibold text-gray-100">{item.name}</div>
                           <div className="text-xs text-gray-400">{item.description}</div>
                         </Link>
@@ -59,16 +61,16 @@ export default function Navbar() {
             </Menu>
 
             <Menu as="div" className="relative inline-block text-left">
-              <Menu.Button className="inline-flex items-center gap-1 text-sm font-medium hover:text-brand">
+              <Menu.Button className="px-3 py-1.5 rounded-full inline-flex items-center gap-1 text-sm font-medium hover:bg-white/10 hover:text-white transition">
                 Portfolio
-                <ChevronDownIcon className="h-4 w-4"/>
+                <ChevronDownIcon className="h-4 w-4" />
               </Menu.Button>
               <Transition as={Fragment} enter="transition ease-out duration-100" enterFrom="transform opacity-0 scale-95" enterTo="transform opacity-100 scale-100" leave="transition ease-in duration-75" leaveFrom="transform opacity-100 scale-100" leaveTo="transform opacity-0 scale-95">
-                <Menu.Items className="absolute right-0 mt-2 w-[320px] origin-top-right rounded-xl border border-gray-800 bg-gray-900 shadow-lg ring-1 ring-black/20 focus:outline-none p-2">
+                <Menu.Items className="absolute left-1/2 -translate-x-1/2 mt-2 w-[min(560px,92vw)] origin-top rounded-xl border border-gray-800 bg-gray-900 shadow-lg ring-1 ring-black/20 focus:outline-none p-2 grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {portfolio.map((item) => (
                     <Menu.Item key={item.href}>
                       {({ active }) => (
-                        <Link href={item.href} className={`block rounded-lg px-3 py-2 ${active ? "bg-gray-800" : ""}`}>
+                        <Link href={item.href} className={`block rounded-lg px-3 py-2 ${active ? "bg-gray-800" : "bg-gray-900"} hover:bg-gray-800`}>
                           <div className="text-sm font-semibold text-gray-100">{item.name}</div>
                           <div className="text-xs text-gray-400">{item.description}</div>
                         </Link>
@@ -79,15 +81,17 @@ export default function Navbar() {
               </Transition>
             </Menu>
 
-            <Link href="/blogs" className="text-sm font-medium hover:text-brand">Blogs</Link>
-            <Link href="/contact" className="text-sm font-medium hover:text-brand">Contact</Link>
+            <Link href="/blogs" className="px-3 py-1.5 rounded-full text-sm font-medium hover:bg-white/10 hover:text-white transition">Blogs</Link>
+            <Link href="/contact" className="px-3 py-1.5 rounded-full text-sm font-medium hover:bg-white/10 hover:text-white transition">Contact</Link>
           </div>
 
-          <div className="md:hidden">
-            <button aria-label="Toggle menu" onClick={() => setMobileOpen((v) => !v)} className="p-2 rounded-md hover:bg-gray-800">
-              {mobileOpen ? <XMarkIcon className="h-6 w-6"/> : <Bars3Icon className="h-6 w-6"/>}
+          {/* Right: Mobile toggle (md:hidden) or spacer (md:block) */}
+          <div className="flex justify-end md:hidden">
+            <button aria-label="Toggle menu" onClick={() => setMobileOpen((v) => !v)} className="p-2 rounded-md hover:bg-white/10">
+              {mobileOpen ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
             </button>
           </div>
+          <div className="hidden md:block" aria-hidden="true" />
         </div>
 
         {mobileOpen && (
