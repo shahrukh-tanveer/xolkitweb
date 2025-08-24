@@ -12,7 +12,7 @@ export default function HomePage() {
   ];
   return (
     <section className="relative overflow-hidden">
-      <div className="relative container-px py-16 sm:py-24">
+      <div className="relative container-px pt-24 sm:pt-28 pb-16 sm:pb-24">
         <div className="mx-auto max-w-4xl text-center">
         <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight">
           <span className="gradient-text">The platform for</span> building tomorrow's intelligent applications

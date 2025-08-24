@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Menu, Transition, Disclosure } from "@headlessui/react";
 import { ChevronDownIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
@@ -23,9 +23,23 @@ const portfolio = [
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#0b1220]/60 backdrop-blur supports-[backdrop-filter]:bg-[#0b1220]/60">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "border-b border-white/10 bg-[#0b1220]/70 backdrop-blur supports-[backdrop-filter]:bg-[#0b1220]/60 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.6)]"
+          : "bg-transparent border-transparent"
+      }`}
+    >
       <nav className="container-px">
         <div className="grid grid-cols-3 items-center h-16">
           {/* Left: Logo */}
